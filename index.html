@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fetch-Api-Js</title>
-    <script defer src="index.js"></script>
+    <link rel="shortcut icon" href="data:image/png;base64,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" type="image/x-icon">
+    <title>Petit-Projet-Api</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <script>
-        "use strict";
+    <div class="principal">
+        
+                <form action="post.JS" id="form">
+                    <div id="pro">
+                        <input type="text" placeholder="Name" id="nameUser" required>
+                        <input type="email" placeholder="email" id="emailUser" required>
+                        <input type="password" placeholder="password" id="passwordUser" required>
+                    </div>                        
+                  
+                        <div class="btn">
+                            <a href="index.html"><button type="submit">connexion</button></a>
+                        </div>
+                        <p><a href="login.html" target="_blank">creér un compte</a></p>
+                </form>
+   
+    </div>
+    
 
-        fetch('https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits')
-            .then(res => res.json())
-            .then(value => console.log(value))
-            .catch(err = );
-    </script>
-</body>
-
+<script src="index.js"></script>
+</body> 
 </html>

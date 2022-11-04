@@ -1,19 +1,33 @@
-// let promise = fetc(url, option)
-// url = url cible et option[parametre facultatif]
+const userName = document.getElementById('nameUser');
+const email = document.getElementById('emailUser');
+const password = document.getElementById('passwordUser');
+const formulaire = document.querySelector('form');
 
-
-//let response = await fetch(url);
-
-//if (response.ok) { // if HTTP-status is 200-299
-// obtenir le corps de réponse (la méthode expliquée ci-dessous)
-//let json = await response.json();
-//} else {
-//alert("HTTP-Error: " + response.status);
-//}
-
-let url = 'https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits';
-let response = await fetch(url);
-
-let commits = await response.json(); // lire le corps de réponse et analyser en JSON
-
-alert(commits[0].author.login);
+// document.querySelector('button').addEventListener('click',()=>console.log('teste'))
+let dataPost = {username: "test"}
+formulaire.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    let dataPostForm = {
+        username : userName.value,
+        useremail : email.value,
+        userpassword: password.value    
+    }   
+    const newData = Object.assign(dataPost, dataPostForm)
+    console.table(dataPost)
+    console.table(newData)
+    document.getElementById('form').reset()
+})
+//  post 
+    fetch('url',{
+        method:  `POST`,
+        headers:{'content-type':'application/json'},
+        body: JSON.stringify(dataPost)    
+    })
+    .then(response => response.json())
+    .then((data)=>{
+        fetch('url')// cet ici qu'on get les donné qu'on a posté en haut
+        .then(res => res.json())
+        .then((data)=> console.table(data))
+        .catch((err)=>console.log(err))
+    })
+    .catch((er) =>console.log(er))
